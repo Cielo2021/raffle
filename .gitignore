@@ -1,3 +1,5 @@
 # don't push the environment vars!
 .env
-
+node_modules/
+artifacts/
+cache/

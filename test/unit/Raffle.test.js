@@ -134,7 +134,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
                       const accountConnectedRaffle = raffle.connect(accounts[i])
                       await accountConnectedRaffle.enterRaffle({ value: raffleEntranceFee })
                   }
-                  const startingTimeStamp = await raffle.getLastestTimeStamp()
+                  const startingTimeStamp = await raffle.getLastTimeStamp()
 
                   // performUpkeep (mocknbeing chainlink keepers)
                   // fulfillRandomWords (mock being the chainlink VRF)
@@ -145,7 +145,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
                           try {
                               const recentWinner = await raffle.getRecentWinner()
                               const raffleState = await raffle.getRaffleState()
-                              const endingTimeStamp = await raffle.getLastestTimeStamp()
+                              const endingTimeStamp = await raffle.getLastTimeStamp()
                               const numPlayers = await raffle.getNumberOfPlayers()
                               const winnerEndingBalance = await accounts[1].getBalance()
                               assert.equal(numPlayers.toString(), "0")

@@ -103,6 +103,7 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         bool hasPlayers = s_players.length > 0;
         bool hasBalance = address(this).balance > 0;
         upkeepNeeded = (isOpen && timePassed && hasPlayers && hasBalance);
+        return (upkeepNeeded, "0x0"); 
     }
 
     function performUpkeep(bytes calldata /* performData */) external override {
@@ -172,7 +173,7 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         return s_players.length;
     }
 
-    function getLastestTimeStamp() public view returns (uint256) {
+    function getLastTimeStamp() public view returns (uint256) {
         return s_lastTimeStamp;
     }
 

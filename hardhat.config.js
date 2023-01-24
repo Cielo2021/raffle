@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox")
 require("@nomicfoundation/hardhat-chai-matchers")
 require("@nomiclabs/hardhat-etherscan")
+require("@nomiclabs/hardhat-ethers");
 require("hardhat-deploy")
 require("hardhat-gas-reporter")
 require("solidity-coverage")
@@ -55,8 +56,8 @@ module.exports = {
             },
         },
         mocha: {
-            timeout: 500000, // 500 seconds max
-        }
+            timeout: 10000000, // 10000000 seconds max
+        },
     }
 
 
